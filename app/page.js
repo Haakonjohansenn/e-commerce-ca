@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { fetchProducts } from './api';
-import Card from './ProductCard';
+import ProductCard from './ProductCard';
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -38,7 +38,7 @@ export default function Home() {
       <div className='max-w-[1000px] w-full mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
         {filteredProducts.map((product) => (
           <div key={product.id}>
-            <Card product={product} />
+            <ProductCard product={product} />
           </div>
         ))}
       </div>
