@@ -32,37 +32,37 @@ export default function ContactPage() {
   };
 
   return (
-    <div>
-      <h1>Contact Us</h1>
+    <div className="container mx-auto mt-10 max-w-screen-lg">
+      <h1 className="text-3xl font-semibold mb-6 text-center">Contact Us</h1>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        <Form>
-          <div>
-            <label htmlFor="fullName">Full Name:</label>
-            <Field type="text" id="fullName" name="fullName" />
-            <ErrorMessage name="fullName" component="div" className="error" />
+        <Form className="flex flex-col space-y-4 items-center w-3/4 mx-auto">
+          <div className="w-full">
+            <label htmlFor="fullName" className="block text-gray-700 text-center">Full Name:</label>
+            <Field type="text" id="fullName" name="fullName" className="form-input mt-1 w-full border rounded-md p-2" />
+            <ErrorMessage name="fullName" component="div" className="text-red-500 text-sm mt-1" />
           </div>
-          <div>
-            <label htmlFor="subject">Subject:</label>
-            <Field type="text" id="subject" name="subject" />
-            <ErrorMessage name="subject" component="div" className="error" />
+          <div className="w-full">
+            <label htmlFor="subject" className="block text-gray-700 text-center">Subject:</label>
+            <Field type="text" id="subject" name="subject" className="form-input mt-1 w-full border rounded-md p-2" />
+            <ErrorMessage name="subject" component="div" className="text-red-500 text-sm mt-1" />
           </div>
-          <div>
-            <label htmlFor="email">Email:</label>
-            <Field type="email" id="email" name="email" />
-            <ErrorMessage name="email" component="div" className="error" />
+          <div className="w-full">
+            <label htmlFor="email" className="block text-gray-700 text-center">Email:</label>
+            <Field type="email" id="email" name="email" className="form-input mt-1 w-full border rounded-md p-2" />
+            <ErrorMessage name="email" component="div" className="text-red-500 text-sm mt-1" />
           </div>
-          <div>
-            <label htmlFor="body">Body:</label>
-            <Field as="textarea" id="body" name="body" />
-            <ErrorMessage name="body" component="div" className="error" />
+          <div className="w-full">
+            <label htmlFor="body" className="block text-gray-700 text-center">Body:</label>
+            <Field as="textarea" id="body" name="body" className="form-textarea mt-1 w-full border rounded-md p-2" rows="5" />
+            <ErrorMessage name="body" component="div" className="text-red-500 text-sm mt-1" />
           </div>
-          <button type="submit">Submit</button>
+          <button type="submit" className="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-300">Submit</button>
         </Form>
       </Formik>
     </div>
-  )
+  );
 }
