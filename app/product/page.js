@@ -6,10 +6,6 @@ export default function ProductPage() {
   const addToCart = useCart((state) => state.addToCart);
   const { title, imageUrl, price, description, id } = product;
 
-  if (!product?.title) {
-    window.location.href = '/'
-}
-
   function handleAddToCart() {
     const newItem = {
       title: title,
