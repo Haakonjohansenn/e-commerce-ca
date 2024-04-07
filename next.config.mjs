@@ -1,10 +1,11 @@
-// @ts-check
- 
-/**
- * @type {import('next').NextConfig}
- */
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
-}
- 
-export default nextConfig
+  images: {
+    domains: ['static.noroff.dev'],
+  },
+  experimental: {
+    appDir: true,
+  },
+};
+
+export default nextConfig;
