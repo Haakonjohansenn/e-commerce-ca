@@ -1,20 +1,24 @@
 "use client";
-
 import useCart from "../(store)/useCart";
 
-export default function ProductPage(props) {
-  const { searchParams } = props;
-  const { id } = props;
+export default function ProductPage() {
   const product = useCart((state) => state.product);
   const addToCart = useCart((state) => state.addToCart);
-  const { title, imageUrl, price, description } = product;
+  const { title, imageUrl, price, description, id } = product;
+
+  if (!product?.title) {
+    window.location.href = '/'
+}
 
   function handleAddToCart() {
     const newItem = {
+      title: title,
       quantity: 1,
-      id: id
+      id: id,
+      price: price
     }
     addToCart({newItem})
+    console.log(newItem)
   }
 
   return (

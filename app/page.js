@@ -2,10 +2,11 @@
 
 import React, { useEffect, useState } from 'react';
 import { fetchProducts } from './api';
-import ProductCard from './productCard';
+import ProductCard from './ProductCard';
 
 export default function Home() {
   const [products, setProducts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,16 +21,28 @@ export default function Home() {
     fetchData();
   }, []);
 
+  const filteredProducts = products.filter((product) =>
+    product.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <main className='p-4 flex flex-col'>
       <h1>Products</h1>
+      <input
+        type='text'
+        placeholder='Search products...'
+        className='border border-gray-300 rounded-md p-2 mb-4'
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
       <div className='max-w-[1000px] w-full mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
-          {products.map((product) => (
-            <div key={product.id}>
-              <ProductCard product={product} />
-            </div>
-          ))}
+        {filteredProducts.map((product) => (
+          <div key={product.id}>
+            <ProductCard product={product} />
+          </div>
+        ))}
       </div>
     </main>
   );
 }
+
