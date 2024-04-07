@@ -2,7 +2,7 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import useCart from "./(store)/useCart";
 
-export default function Card({ product }) {
+export default function ProductCard({ product }) {
   const { title, description, price, discountedPrice, imageUrl, id } = product;
   const router = useRouter();
   const setProduct = useCart((state) => state.setProduct);
