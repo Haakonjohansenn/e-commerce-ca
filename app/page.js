@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { fetchProducts } from './api';
-import Card from './ProductCard';;
+import Card from './ProductCard';
 
 export default function Home() {
   const [products, setProducts] = useState([]);
